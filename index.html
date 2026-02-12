@@ -97,9 +97,9 @@
 
         .carousel-slide {
             flex: 0 0 auto;
-            min-width: 250px;
-            max-width: 400px;
-            height: 300px;
+            min-width: 500px;
+            max-width: 800px;
+            height: 600px;
             object-fit: cover;
             border-radius: 15px;
             box-shadow: 0 5px 20px rgba(0,0,0,0.15);
@@ -440,6 +440,7 @@
         .success-list {
             max-width: 1200px;
             margin: 50px auto 0;
+            text-align: center;
         }
 
         .success-group {
@@ -470,7 +471,7 @@
 
         .success-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            grid-template-columns: repeat(5, 1fr);
             gap: 15px;
         }
 
@@ -543,7 +544,7 @@
         /* 老师卡片 */
         .teachers-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 30px;
             max-width: 1000px;
             margin: 0 auto;
@@ -778,7 +779,7 @@
 
     <!-- 班级回忆轮播 -->
     <section class="section-memories">
-        <h2 class="memories-title">✨ 班级美好回忆 ✨</h2>
+        <h2 class="memories-title">✨ 柠檬公考 2026 省考班二期上岸记录 ✨</h2>
         <div class="carousel-wrapper">
             <div class="carousel-track" id="carouselTrack">
                 <img src="轮播图/1.jpg" class="carousel-slide active" alt="班级回忆">
@@ -834,7 +835,7 @@
         <div class="news-header">
             <div class="logo"><img src="头像/柠檬公考.jpg" alt="柠檬公考" class="logo-img"></div>
             <h2 class="news-title">捷报频传</h2>
-            <p class="news-subtitle">江苏省考&&选调上岸榜 · 凯旋归来</p>
+            <p class="news-subtitle">江苏二期省考班  省考&&选调上岸榜 </p>
         </div>
 
         <div class="success-list">
@@ -861,12 +862,13 @@
             <div class="teacher-card" style="animation-delay: 0.2s;">
                 <div class="avatar"><img src="头像/冰冰老师.jpg" alt="冰冰老师" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
                 <div class="name">冰冰老师</div>
-                <div class="title">循循善诱 · 温暖相伴</div>
+                <div class="title">经验丰富 · 耐心指导
+                </div>
             </div>
             <div class="teacher-card" style="animation-delay: 0.3s;">
                 <div class="avatar"><img src="头像/郝老师.jpg" alt="郝老师" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
                 <div class="name">郝老师</div>
-                <div class="title">经验丰富 · 耐心指导</div>
+                <div class="title">循循善诱 · 温暖相伴</div>
             </div>
             <div class="teacher-card" style="animation-delay: 0.4s;">
                 <div class="avatar"><img src="头像/张老师.jpg" alt="张老师" style="width:100%;height:100%;object-fit:cover;border-radius:50%;"></div>
@@ -964,6 +966,11 @@
                 { name: "刘晓康", avatar: "头像/刘晓康.jpg", tag: "上岸" },
                 { name: "王秋烨", avatar: "头像/王秋烨.jpg", tag: "上岸" },
                 { name: "徐舒宸", avatar: "头像/徐舒宸.jpg", tag: "上岸" },
+                { name: "王震", avatar: "头像/王震.jpg", tag: "上岸" },
+                { name: "王思懿", avatar: "头像/王思懿.jpg", tag: "上岸" },
+                { name: "王鑫", avatar: "头像/王鑫.jpg", tag: "上岸" },
+                { name: "寇成龙", avatar: "头像/寇成龙.jpg", tag: "上岸" },
+                { name: "张宇", avatar: "头像/张宇.jpg", tag: "上岸" },
                 { name: "王惜玉", avatar: "头像/王惜玉.jpg", tag: "上岸" },
                 { name: "索语晗", avatar: "头像/索语晗.jpg", tag: "上岸" },
                 { name: "张佳静", avatar: "头像/张佳静.jpg", tag: "上岸" },
@@ -974,11 +981,6 @@
                 { name: "李滨晗", avatar: "头像/李滨晗.jpg", tag: "上岸" },
                 { name: "张宇冲", avatar: "头像/张宇冲.jpg", tag: "上岸" },
                 { name: "张昕璐", avatar: "头像/张昕璐.jpg", tag: "上岸" },
-                { name: "王震", avatar: "头像/王震.jpg", tag: "上岸" },
-                { name: "王思懿", avatar: "头像/王思懿.jpg", tag: "上岸" },
-                { name: "王鑫", avatar: "头像/王鑫.jpg", tag: "上岸" },
-                { name: "寇成龙", avatar: "头像/寇成龙.jpg", tag: "上岸" },
-                { name: "张宇", avatar: "头像/张宇.jpg", tag: "上岸" },
             ]
         };
 
@@ -1109,7 +1111,7 @@
 
         // 设置日期
         document.getElementById('classDate').textContent =
-            `面试班结课日 · ${new Date().toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}`;
+            `面试班结课日 `;
 
         // 音乐控制
         const bgMusic = document.getElementById('bgMusic');
