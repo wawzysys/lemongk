@@ -1,0 +1,1130 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>预祝大家上岸 - 柠檬公考</title>
+    <audio id="bgMusic" loop>
+        <source src="一路生花.mp3" type="audio/mpeg">
+    </audio>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* 浪花动画背景 */
+        .waves {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .wave {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 200%;
+            height: 100%;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 320'%3E%3Cpath fill='%23ffffff' fill-opacity='0.3' d='M0,192L48,176C96,160,192,128,288,133.3C384,139,480,181,576,197.3C672,213,768,203,864,176C960,149,1056,107,1152,106.7C1248,107,1344,149,1392,170.7L1440,192L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z'%3E%3C/path%3E%3C/svg%3E") repeat-x;
+            animation: wave 8s linear infinite;
+        }
+
+        .wave:nth-child(2) {
+            bottom: 10px;
+            animation: wave 6s linear reverse infinite;
+            opacity: 0.5;
+        }
+
+        @keyframes wave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* 主容器 */
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px 120px;
+        }
+
+        /* ========== 班级回忆轮播 ========== */
+        .section-memories {
+            padding: 60px 20px 40px;
+            background: linear-gradient(135deg, #ffeaa7 0%, #ffd19a 100%);
+        }
+
+        .memories-title {
+            text-align: center;
+            font-size: clamp(1.8rem, 5vw, 2.5rem);
+            color: #8b4513;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .carousel-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .carousel-track {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            gap: 10px;
+            padding: 10px;
+            border-radius: 20px;
+            background: rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+            scrollbar-width: none;
+        }
+
+        .carousel-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-slide {
+            flex: 0 0 auto;
+            min-width: 250px;
+            max-width: 400px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            scroll-snap-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-slide:hover {
+            transform: scale(1.05);
+        }
+
+        .carousel-slide.active {
+            box-shadow: 0 8px 30px rgba(139,69,19,0.4);
+        }
+
+        /* ========== 第一部分：预祝上岸 ========== */
+        .section-wishes {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ff6b6b 0%, #f7931e 50%, #ffc107 100%);
+            position: relative;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header h1 {
+            font-size: clamp(2rem, 8vw, 3.5rem);
+            color: #fff;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            margin-bottom: 15px;
+            letter-spacing: 5px;
+        }
+
+        .header .subtitle {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: rgba(255,255,255,0.9);
+            font-weight: 300;
+        }
+
+        .header .countdown {
+            margin-top: 20px;
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            padding: 12px 30px;
+            border-radius: 50px;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        .header .countdown span {
+            font-weight: bold;
+            font-size: 1.4rem;
+            color: #ffd700;
+        }
+
+        /* 考生网格 */
+        .students-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
+        }
+
+        /* 考生卡片 */
+        .student-card {
+            background: rgba(255,255,255,0.95);
+            border-radius: 20px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .student-card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .student-card .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            overflow: hidden;
+            border: 4px solid #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .student-card .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .student-card .name {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 5px;
+        }
+
+        .student-card .wish {
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .student-card .blessing {
+            margin-top: 10px;
+            font-size: 0.8rem;
+            color: #667eea;
+            font-weight: 500;
+        }
+
+        /* 祝福语弹窗 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal.active {
+            display: flex;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content {
+            background: #fff;
+            border-radius: 25px;
+            padding: 40px;
+            max-width: 400px;
+            width: 90%;
+            text-align: center;
+            animation: scaleIn 0.3s ease;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-content .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            border: 5px solid #667eea;
+        }
+
+        .modal-content .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .modal-content h2 {
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .modal-content .message {
+            color: #666;
+            line-height: 1.8;
+            font-size: 1rem;
+        }
+
+        .modal-content .close {
+            margin-top: 25px;
+            padding: 10px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .modal-content .close:hover {
+            transform: scale(1.05);
+        }
+
+        .footer {
+            text-align: center;
+            color: rgba(255,255,255,0.8);
+            padding: 40px 20px;
+        }
+
+        .footer .slogan {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .footer .date {
+            font-size: 0.9rem;
+            opacity: 0.7;
+        }
+
+        /* ========== 第二部分：捷报 ========== */
+        .section-news {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            position: relative;
+            padding: 80px 20px;
+        }
+
+        .news-header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .news-header .logo {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            color: #ffd700;
+            font-weight: bold;
+            margin-bottom: 10px;
+            letter-spacing: 3px;
+        }
+
+        .news-header .logo-img {
+            max-height: 60px;
+            vertical-align: middle;
+        }
+
+        .news-header .news-title {
+            font-size: clamp(1.8rem, 6vw, 3rem);
+            color: #fff;
+            text-shadow: 0 0 30px rgba(255,215,0,0.5);
+            margin-bottom: 10px;
+        }
+
+        .news-header .news-subtitle {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: #ffd700;
+            font-weight: 500;
+        }
+
+        /* 捷报分类 */
+        .news-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .news-category {
+            background: linear-gradient(145deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05));
+            border: 2px solid rgba(255,215,0,0.3);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .news-category:hover {
+            transform: translateY(-5px);
+            border-color: rgba(255,215,0,0.6);
+            box-shadow: 0 20px 40px rgba(255,215,0,0.2);
+        }
+
+        .news-category .icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+        }
+
+        .news-category h3 {
+            color: #ffd700;
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+        }
+
+        .news-category .count {
+            font-size: 3rem;
+            color: #fff;
+            font-weight: bold;
+            text-shadow: 0 0 20px rgba(255,215,0,0.5);
+        }
+
+        .news-category .label {
+            color: rgba(255,255,255,0.7);
+            margin-top: 5px;
+        }
+
+        /* 捷报人员列表 */
+        .success-list {
+            max-width: 1200px;
+            margin: 50px auto 0;
+        }
+
+        .success-group {
+            margin-bottom: 40px;
+        }
+
+        .success-group-title {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #1a1a2e;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .success-title {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffd700, #ffed4e);
+            color: #1a1a2e;
+            padding: 10px 25px;
+            border-radius: 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .success-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+        }
+
+        .success-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 15px;
+            padding: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,215,0,0.2);
+        }
+
+        .success-item:hover {
+            background: rgba(255,215,0,0.2);
+            transform: scale(1.05);
+        }
+
+        .success-item .avatar {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            margin: 0 auto 10px;
+            overflow: hidden;
+            border: 3px solid #ffd700;
+        }
+
+        .success-item .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .success-item .name {
+            color: #fff;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+
+        .success-item .tag {
+            color: #ffd700;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+
+        /* ========== 第三部分：感谢老师 ========== */
+        .section-teachers {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            padding: 80px 20px;
+            position: relative;
+        }
+
+        .teachers-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .teachers-header h2 {
+            font-size: clamp(2rem, 6vw, 3rem);
+            color: #8b4513;
+            margin-bottom: 15px;
+        }
+
+        .teachers-header p {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: #a0522d;
+            font-weight: 500;
+        }
+
+        /* 老师卡片 */
+        .teachers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .teacher-card {
+            background: #fff;
+            border-radius: 20px;
+            padding: 30px 20px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(139,69,19,0.15);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .teacher-card:hover {
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: 0 25px 50px rgba(139,69,19,0.25);
+        }
+
+        .teacher-card .avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            margin: 0 auto 15px;
+            background: linear-gradient(135deg, #ffecd2, #fcb69f);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.5rem;
+            border: 4px solid #fff;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .teacher-card .name {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: #8b4513;
+            margin-bottom: 5px;
+        }
+
+        .teacher-card .title {
+            font-size: 0.9rem;
+            color: #a0522d;
+        }
+
+        /* 其他老师卡片 */
+        .teacher-card.other-teachers {
+            background: linear-gradient(135deg, #8b4513, #a0522d);
+        }
+
+        .teacher-card.other-teachers .name,
+        .teacher-card.other-teachers .title {
+            color: #fff;
+        }
+
+        .teacher-card.other-teachers .avatar {
+            background: rgba(255,255,255,0.2);
+        }
+
+        /* 感谢语 */
+        .thank-message {
+            max-width: 800px;
+            margin: 50px auto 0;
+            text-align: center;
+            padding: 30px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+        }
+
+        .thank-message p {
+            font-size: 1.1rem;
+            color: #8b4513;
+            line-height: 2;
+        }
+
+        .thank-message .signature {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #a0522d;
+        }
+
+        /* 最终底部 */
+        .final-footer {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+        }
+
+        .final-footer .logo {
+            font-size: 1.5rem;
+            color: #ffd700;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .final-footer .logo-img {
+            max-height: 40px;
+            vertical-align: middle;
+        }
+
+        .final-footer p {
+            opacity: 0.7;
+        }
+
+        /* 漂浮装饰 */
+        .floating {
+            position: fixed;
+            pointer-events: none;
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        .floating-star {
+            width: 20px;
+            height: 20px;
+            background: #fff;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .students-grid {
+                grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+                gap: 15px;
+            }
+
+            .student-card {
+                padding: 15px;
+            }
+
+            .student-card .avatar {
+                width: 80px;
+                height: 80px;
+            }
+
+            .news-categories {
+                grid-template-columns: 1fr;
+            }
+
+            .success-grid {
+                grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            }
+
+            .teachers-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+        }
+
+        /* 向下滚动提示 */
+        .scroll-hint {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(10px); }
+        }
+
+        .scroll-hint .icon {
+            font-size: 2rem;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .scroll-hint span {
+            font-size: 0.9rem;
+        }
+
+        /* 音乐控制按钮 */
+        .music-control {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .music-control:hover {
+            transform: scale(1.1);
+            background: rgba(255,255,255,0.3);
+        }
+
+        .music-icon {
+            font-size: 1.5rem;
+        }
+
+        .music-control.playing {
+            animation: rotate 3s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <!-- 音乐控制按钮 -->
+    <div class="music-control" id="musicControl" onclick="toggleMusic()">
+        <span class="music-icon">🎵</span>
+    </div>
+
+    <!-- 漂浮星星装饰 -->
+    <div class="floating floating-star" style="top: 10%; left: 5%;"></div>
+    <div class="floating floating-star" style="top: 20%; right: 10%; animation-delay: -2s;"></div>
+
+    <!-- 班级回忆轮播 -->
+    <section class="section-memories">
+        <h2 class="memories-title">✨ 班级美好回忆 ✨</h2>
+        <div class="carousel-wrapper">
+            <div class="carousel-track" id="carouselTrack">
+                <img src="轮播图/1.jpg" class="carousel-slide active" alt="班级回忆">
+                <img src="轮播图/2.jpg" class="carousel-slide" alt="班级回忆">
+                <img src="轮播图/3.jpg" class="carousel-slide" alt="班级回忆">
+                <img src="轮播图/4.jpg" class="carousel-slide" alt="班级回忆">
+                <img src="轮播图/5.jpg" class="carousel-slide" alt="班级回忆">
+                <img src="轮播图/6.jpg" class="carousel-slide" alt="班级回忆">
+                <img src="轮播图/7.jpg" class="carousel-slide" alt="班级回忆">
+                <img src="轮播图/8.jpg" class="carousel-slide" alt="班级回忆">
+                <img src="轮播图/9.jpg" class="carousel-slide" alt="班级回忆">
+                <img src="轮播图/10.jpg" class="carousel-slide" alt="班级回忆">
+                <img src="轮播图/11.jpg" class="carousel-slide" alt="班级回忆">
+                <img src="轮播图/12.jpg" class="carousel-slide" alt="班级回忆">
+            </div>
+        </div>
+    </section>
+
+    <!-- 第一部分：预祝上岸 -->
+    <section class="section-wishes">
+        <div class="container">
+            <header class="header">
+                <h1>预祝大家上岸 </h1>
+                <p class="subtitle">面试班今日结课 · 一月之后顶峰相见</p>
+                <div class="countdown">
+                    距离面试还有 <span id="days">30</span> 天
+                </div>
+            </header>
+
+            <div class="students-grid" id="studentsGrid">
+                <!-- 卡片会通过JS动态生成 -->
+            </div>
+
+            <footer class="footer">
+                <p class="slogan">✨ 祝柠檬公考桃李芬芳，再创佳绩！✨</p>
+                <p class="date" id="classDate"></p>
+            </footer>
+
+            <div class="scroll-hint">
+                <span class="icon">↓</span>
+                <span>向下滚动查看捷报</span>
+            </div>
+        </div>
+
+        <div class="waves">
+            <div class="wave"></div>
+            <div class="wave"></div>
+        </div>
+    </section>
+
+    <!-- 第二部分：捷报 -->
+    <section class="section-news">
+        <div class="news-header">
+            <div class="logo"><img src="头像/柠檬公考.jpg" alt="柠檬公考" class="logo-img"></div>
+            <h2 class="news-title">捷报频传</h2>
+            <p class="news-subtitle">江苏省考&&选调上岸榜 · 凯旋归来</p>
+        </div>
+
+        <div class="success-list">
+            <h3 class="success-title">🎉 金榜题名 · 成功上岸 🎉</h3>
+            <div class="success-grid" id="successGrid">
+                <!-- JS动态生成 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 第三部分：感谢老师 -->
+    <section class="section-teachers">
+        <div class="teachers-header">
+            <h2>感恩有您</h2>
+            <p>感谢每一位辛勤付出的老师</p>
+        </div>
+
+        <div class="teachers-grid">
+            <div class="teacher-card" style="animation-delay: 0.1s;">
+                <div class="avatar">👨‍🏫</div>
+                <div class="name">戴老师</div>
+                <div class="title">倾囊相授 · 指点迷津</div>
+            </div>
+            <div class="teacher-card" style="animation-delay: 0.2s;">
+                <div class="avatar">👩‍🏫</div>
+                <div class="name">冰冰老师</div>
+                <div class="title">循循善诱 · 温暖相伴</div>
+            </div>
+            <div class="teacher-card" style="animation-delay: 0.3s;">
+                <div class="avatar">👨‍🏫</div>
+                <div class="name">郝老师</div>
+                <div class="title">经验丰富 · 耐心指导</div>
+            </div>
+            <div class="teacher-card" style="animation-delay: 0.4s;">
+                <div class="avatar">👩‍🏫</div>
+                <div class="name">张老师</div>
+                <div class="title">细致入微 · 答疑解惑</div>
+            </div>
+            <div class="teacher-card other-teachers" style="animation-delay: 0.5s;">
+                <div class="avatar">👥</div>
+                <div class="name">其他各位老师</div>
+                <div class="title">感谢一路相伴</div>
+            </div>
+        </div>
+
+        <div class="thank-message">
+            <p>
+                感谢各位老师的悉心教导和辛勤付出<br>
+                是你们的专业与耐心，照亮了我们前行的路<br>
+                祝柠檬考公越来越好
+            </p>
+            <div class="signature">—— 柠檬公考 2026 省考班二期全体学员 敬上</div>
+        </div>
+    </section>
+
+    <!-- 最终底部 -->
+    <footer class="final-footer">
+        <div class="logo"><img src="头像/柠檬公考.jpg" alt="柠檬公考" class="logo-img"></div>
+        <p>愿每一位考生都能乘风破浪，成功上岸！</p>
+    </footer>
+
+    <!-- 弹窗 -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <div class="avatar">
+                <img id="modalAvatar" src="" alt="">
+            </div>
+            <h2 id="modalName"></h2>
+            <p class="message" id="modalMessage"></p>
+            <button class="close" onclick="closeModal()">送上祝福</button>
+        </div>
+    </div>
+
+    <script>
+        // 考生数据 - 在这里修改考生信息
+        const students = [
+            { name: "张玥", avatar: "头像/张玥.jpg", message: "愿你在面试中从容自信，展现最好的自己！" },
+            { name: "郭俊兰", avatar: "头像/郭俊兰.jpg", message: "祝你旗开得胜，成功上岸！" },
+            { name: "张金如", avatar: "头像/张金如.jpg", message: "相信自己，你一定可以的！" },
+            { name: "张乃月", avatar: "头像/张乃月.jpg", message: "愿你发挥出色，金榜题名！" },
+            { name: "王赛", avatar: "头像/王赛.jpg", message: "加油！未来的上岸人！" },
+            { name: "张佳婕", avatar: "头像/张佳婕.jpg", message: "愿所有的努力都有回报！" },
+            { name: "张森莹", avatar: "头像/张森莹.jpg", message: "祝你面试顺利，成功上岸！" },
+            { name: "钟钰", avatar: "头像/钟钰.jpg", message: "相信自己，你就是最棒的！" },
+            { name: "陈腾", avatar: "头像/陈腾.jpg", message: "愿你乘风破浪，勇往直前！" },
+            { name: "于瑶瑶", avatar: "头像/于瑶瑶.jpg", message: "祝你心想事成，马到成功！" },
+            { name: "张淑惠", avatar: "头像/张淑惠.jpg", message: "愿你的努力终有回报！" },
+            { name: "刘晓康", avatar: "头像/刘晓康.jpg", message: "祝你前程似锦，未来可期！" },
+            { name: "王震", avatar: "头像/王震.jpg", message: "愿你不负韶华，梦想成真！" },
+            { name: "王思懿", avatar: "头像/王思懿.jpg", message: "祝你一举夺魁，金榜题名！" },
+            { name: "王鑫", avatar: "头像/王鑫.jpg", message: "愿你从容自信，旗开得胜！" },
+            { name: "王秋烨", avatar: "头像/王秋烨.jpg", message: "祝你发挥出色，成功上岸！" },
+            { name: "徐舒宸", avatar: "头像/徐舒宸.jpg", message: "愿所有美好都如期而至！" },
+            { name: "寇成龙", avatar: "头像/寇成龙.jpg", message: "祝你一飞冲天，前程万里！" },
+            { name: "张宇", avatar: "头像/张宇.jpg", message: "愿你沉着冷静，超常发挥！" },
+            { name: "王惜玉", avatar: "头像/王惜玉.jpg", message: "祝你金榜题名，如愿以偿！" },
+            { name: "索语晗", avatar: "头像/索语晗.jpg", message: "愿你的才华在面试中绽放！" },
+            { name: "张佳静", avatar: "头像/张佳静.jpg", message: "祝你从容应对，成功上岸！" },
+            { name: "李丹凤", avatar: "头像/李丹凤.jpg", message: "愿你乘风破浪，一往无前！" },
+            { name: "朱卿", avatar: "头像/朱卿.jpg", message: "祝你心想事成，万事如意！" },
+            { name: "王雅琳", avatar: "头像/王雅琳.jpg", message: "愿你不负努力，金榜题名！" },
+            { name: "薛蕊", avatar: "头像/薛蕊.jpg", message: "祝你旗开得胜，马到成功！" },
+            { name: "李滨晗", avatar: "头像/李滨晗.jpg", message: "愿你前程似锦，大展宏图！" },
+            { name: "张宇冲", avatar: "头像/张宇冲.jpg", message: "祝你一鼓作气，成功上岸！" },
+            { name: "张昕璐", avatar: "头像/张昕璐.jpg", message: "愿你光芒万丈，梦想成真！" },
+        ];
+
+        // 捷报数据 - 成功上岸的考生
+        const successData = {
+            allSuccess: [
+                { name: "张玥", avatar: "头像/张玥.jpg", tag: "上岸" },
+                { name: "郭俊兰", avatar: "头像/郭俊兰.jpg", tag: "上岸" },
+                { name: "张金如", avatar: "头像/张金如.jpg", tag: "上岸" },
+                { name: "张乃月", avatar: "头像/张乃月.jpg", tag: "上岸" },
+                { name: "王赛", avatar: "头像/王赛.jpg", tag: "上岸" },
+                { name: "张佳婕", avatar: "头像/张佳婕.jpg", tag: "上岸" },
+                { name: "张森莹", avatar: "头像/张森莹.jpg", tag: "上岸" },
+                { name: "钟钰", avatar: "头像/钟钰.jpg", tag: "上岸" },
+                { name: "陈腾", avatar: "头像/陈腾.jpg", tag: "上岸" },
+                { name: "于瑶瑶", avatar: "头像/于瑶瑶.jpg", tag: "上岸" },
+                { name: "张淑惠", avatar: "头像/张淑惠.jpg", tag: "上岸" },
+                { name: "刘晓康", avatar: "头像/刘晓康.jpg", tag: "上岸" },
+                { name: "王秋烨", avatar: "头像/王秋烨.jpg", tag: "上岸" },
+                { name: "徐舒宸", avatar: "头像/徐舒宸.jpg", tag: "上岸" },
+                { name: "王惜玉", avatar: "头像/王惜玉.jpg", tag: "上岸" },
+                { name: "索语晗", avatar: "头像/索语晗.jpg", tag: "上岸" },
+                { name: "张佳静", avatar: "头像/张佳静.jpg", tag: "上岸" },
+                { name: "李丹凤", avatar: "头像/李丹凤.jpg", tag: "上岸" },
+                { name: "朱卿", avatar: "头像/朱卿.jpg", tag: "上岸" },
+                { name: "王雅琳", avatar: "头像/王雅琳.jpg", tag: "上岸" },
+                { name: "薛蕊", avatar: "头像/薛蕊.jpg", tag: "上岸" },
+                { name: "李滨晗", avatar: "头像/李滨晗.jpg", tag: "上岸" },
+                { name: "张宇冲", avatar: "头像/张宇冲.jpg", tag: "上岸" },
+                { name: "张昕璐", avatar: "头像/张昕璐.jpg", tag: "上岸" },
+                { name: "王震", avatar: "头像/王震.jpg", tag: "上岸" },
+                { name: "王思懿", avatar: "头像/王思懿.jpg", tag: "上岸" },
+                { name: "王鑫", avatar: "头像/王鑫.jpg", tag: "上岸" },
+                { name: "寇成龙", avatar: "头像/寇成龙.jpg", tag: "上岸" },
+                { name: "张宇", avatar: "头像/张宇.jpg", tag: "上岸" },
+            ]
+        };
+
+        // 祝福语池
+        const blessings = [
+            "前程似锦，未来可期！",
+            "一帆风顺，马到成功！",
+            "金榜题名，成功上岸！",
+            "不负韶华，梦想成真！",
+            "乘风破浪，勇往直前！",
+            "心想事成，万事如意！"
+        ];
+
+        // 生成考生卡片
+        function renderCards() {
+            const grid = document.getElementById('studentsGrid');
+            grid.innerHTML = '';
+
+            students.forEach((student, index) => {
+                const card = document.createElement('div');
+                card.className = 'student-card';
+                card.style.animationDelay = `${index * 0.1}s`;
+                card.innerHTML = `
+                    <div class="avatar">
+                        <img src="${student.avatar}" alt="${student.name}">
+                    </div>
+                    <div class="name">${student.name}</div>
+                    <div class="wish">准上岸人</div>
+                    <div class="blessing">${blessings[Math.floor(Math.random() * blessings.length)]}</div>
+                `;
+                card.onclick = () => openModal(student);
+                grid.appendChild(card);
+            });
+        }
+
+        // 生成捷报列表
+        function renderSuccessList() {
+            const successGrid = document.getElementById('successGrid');
+
+            // 合并省考和选调数据
+            const allSuccess = successData.allSuccess;
+
+            // 清空并重新生成
+            successGrid.innerHTML = allSuccess.map(item => `
+                <div class="success-item">
+                    <div class="avatar">
+                        <img src="${item.avatar}" alt="${item.name}">
+                    </div>
+                    <div class="name">${item.name}</div>
+                    <div class="tag">${item.tag}</div>
+                </div>
+            `).join('');
+
+            // 更新总人数（带动画）
+            animateNumber('totalCount', allSuccess.length);
+        }
+
+        // 数字动画
+        function animateNumber(id, target) {
+            const el = document.getElementById(id);
+            let current = 0;
+            const increment = target / 30;
+            const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                    current = target;
+                    clearInterval(timer);
+                }
+                el.textContent = Math.floor(current);
+            }, 50);
+        }
+
+        // 打开弹窗
+        function openModal(student) {
+            document.getElementById('modalAvatar').src = student.avatar;
+            document.getElementById('modalName').textContent = student.name;
+            document.getElementById('modalMessage').textContent = student.message;
+            document.getElementById('modal').classList.add('active');
+        }
+
+        // 关闭弹窗
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+        }
+
+        // 点击背景关闭弹窗
+        document.getElementById('modal').addEventListener('click', (e) => {
+            if (e.target.id === 'modal') closeModal();
+        });
+
+        // 轮播图自动播放
+        const carouselTrack = document.getElementById('carouselTrack');
+        const slides = document.querySelectorAll('.carousel-slide');
+        let currentSlide = 0;
+
+        function autoSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
+            const trackWidth = carouselTrack.clientWidth;
+            const slideWidth = slides[currentSlide].offsetWidth + 10; // 加上gap
+            const scrollLeft = slides[currentSlide].offsetLeft - (trackWidth - slides[currentSlide].offsetWidth) / 2;
+            carouselTrack.scrollTo({ left: scrollLeft, behavior: 'smooth' });
+            slides.forEach(s => s.classList.remove('active'));
+            slides[currentSlide].classList.add('active');
+        }
+
+        // 每3秒自动切换
+        let slideInterval = setInterval(autoSlide, 3000);
+
+        // 鼠标悬停时暂停自动播放
+        carouselTrack.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+
+        // 鼠标离开时恢复自动播放
+        carouselTrack.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(autoSlide, 3000);
+        });
+
+        // 轮播图点击效果
+        document.querySelectorAll('.carousel-slide').forEach((slide, index) => {
+            slide.addEventListener('click', () => {
+                currentSlide = index;
+                slide.scrollIntoView({ behavior: 'smooth', inline: 'center' });
+                document.querySelectorAll('.carousel-slide').forEach(s => s.classList.remove('active'));
+                slide.classList.add('active');
+            });
+        });
+
+        // 设置日期
+        document.getElementById('classDate').textContent =
+            `面试班结课日 · ${new Date().toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' })}`;
+
+        // 音乐控制
+        const bgMusic = document.getElementById('bgMusic');
+        const musicControl = document.getElementById('musicControl');
+        let isPlaying = false;
+
+        function toggleMusic() {
+            if (isPlaying) {
+                bgMusic.pause();
+                musicControl.classList.remove('playing');
+            } else {
+                bgMusic.play();
+                musicControl.classList.add('playing');
+            }
+            isPlaying = !isPlaying;
+        }
+
+        // 初始化
+        renderCards();
+        renderSuccessList();
+    </script>
+</body>
+</html>
