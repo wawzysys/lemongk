@@ -66,6 +66,19 @@
             background: linear-gradient(135deg, #ffeaa7 0%, #ffd19a 100%);
         }
 
+        .memories-logo {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .memories-logo-img {
+            max-height: 70px;
+            border-radius: 15px;
+            background: #fff;
+            padding: 5px;
+            box-shadow: 0 5px 15px rgba(139,69,19,0.2);
+        }
+
         .memories-title {
             text-align: center;
             font-size: clamp(1.8rem, 5vw, 2.5rem);
@@ -140,6 +153,18 @@
             }
         }
 
+        .header-logo {
+            margin-bottom: 20px;
+        }
+
+        .header-logo-img {
+            max-height: 80px;
+            border-radius: 15px;
+            background: #fff;
+            padding: 5px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+
         .header h1 {
             font-size: clamp(2rem, 8vw, 3.5rem);
             color: #fff;
@@ -157,18 +182,22 @@
         .header .countdown {
             margin-top: 20px;
             display: inline-block;
-            background: rgba(255,255,255,0.2);
+            background: rgba(255,215,0,0.3);
             backdrop-filter: blur(10px);
-            padding: 12px 30px;
+            padding: 15px 40px;
             border-radius: 50px;
-            color: #fff;
-            font-size: 1.1rem;
+            color: #ffd700;
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-shadow: 0 0 20px rgba(255,215,0,0.5);
+            border: 2px solid rgba(255,215,0,0.5);
         }
 
         .header .countdown span {
             font-weight: bold;
-            font-size: 1.4rem;
-            color: #ffd700;
+            font-size: 1.6rem;
+            color: #fff;
+            text-shadow: 0 0 15px rgba(255,255,255,0.8);
         }
 
         /* 考生网格 */
@@ -629,6 +658,86 @@
             color: #a0522d;
         }
 
+        /* ========== 数据统计 ========== */
+        .section-stats {
+            padding: 80px 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            position: relative;
+        }
+
+        .stats-header {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .stats-header h2 {
+            font-size: clamp(2rem, 6vw, 3rem);
+            color: #fff;
+            margin-bottom: 15px;
+            text-shadow: 0 0 30px rgba(255,255,255,0.3);
+        }
+
+        .stats-header p {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: rgba(255,255,255,0.9);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .stat-card {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 40px 30px;
+            text-align: center;
+            border: 2px solid rgba(255,255,255,0.2);
+            transition: all 0.3s ease;
+            animation: fadeInUp 0.6s ease-out backwards;
+        }
+
+        .stat-card:nth-child(1) { animation-delay: 0.1s; }
+        .stat-card:nth-child(2) { animation-delay: 0.2s; }
+        .stat-card:nth-child(3) { animation-delay: 0.3s; }
+
+        .stat-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            background: rgba(255,255,255,0.25);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+
+        .stat-icon {
+            font-size: 3.5rem;
+            margin-bottom: 15px;
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 0 0 20px rgba(255,215,0,0.5);
+            display: inline-block;
+        }
+
+        .stat-unit {
+            font-size: 2rem;
+            color: #fff;
+            margin-left: 5px;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+            margin-top: 10px;
+            font-weight: 500;
+        }
+
         /* 最终底部 */
         .final-footer {
             text-align: center;
@@ -779,7 +888,8 @@
 
     <!-- 班级回忆轮播 -->
     <section class="section-memories">
-        <h2 class="memories-title">✨ 柠檬公考 2026 省考班二期上岸记录 ✨</h2>
+        <div class="memories-logo"><img src="头像/柠檬公考.jpg" alt="柠檬公考" class="memories-logo-img"></div>
+        <h2 class="memories-title">✨ 柠檬公考 2026 江苏省考面试班二期上岸记录 ✨</h2>
         <div class="carousel-wrapper">
             <div class="carousel-track" id="carouselTrack">
                 <img src="轮播图/1.jpg" class="carousel-slide active" alt="班级回忆">
@@ -802,10 +912,10 @@
     <section class="section-wishes">
         <div class="container">
             <header class="header">
+                <div class="header-logo"><img src="头像/柠檬公考.jpg" alt="柠檬公考" class="header-logo-img"></div>
                 <h1>预祝大家上岸 </h1>
-                <p class="subtitle">面试班今日结课 · 一月之后顶峰相见</p>
                 <div class="countdown">
-                    距离面试还有 <span id="days">一个月</span>
+                    距离面试一月，愿你全力以赴，顶峰相见
                 </div>
             </header>
 
@@ -835,13 +945,41 @@
         <div class="news-header">
             <div class="logo"><img src="头像/柠檬公考.jpg" alt="柠檬公考" class="logo-img"></div>
             <h2 class="news-title">捷报频传</h2>
-            <p class="news-subtitle">江苏二期省考班  省考&&选调上岸榜 </p>
+            <p class="news-subtitle">江苏省考面试班二期  省考&&选调上岸榜 </p>
         </div>
 
         <div class="success-list">
             <h3 class="success-title">🎉 金榜题名 · 成功上岸 🎉</h3>
             <div class="success-grid" id="successGrid">
                 <!-- JS动态生成 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 数据统计 -->
+    <section class="section-stats">
+        <div class="stats-header">
+            <h2>辉煌战绩</h2>
+            <p>用实力说话 · 用成绩证明</p>
+        </div>
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-icon">🏆</div>
+                <div class="stat-number" data-target="100">0</div>
+                <div class="stat-unit">%</div>
+                <div class="stat-label">上岸率</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">👨‍🎓</div>
+                <div class="stat-number" data-target="29">0</div>
+                <div class="stat-unit">人</div>
+                <div class="stat-label">成功上岸</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">📚</div>
+                <div class="stat-number" data-target="6">0</div>
+                <div class="stat-unit">位</div>
+                <div class="stat-label">金牌导师</div>
             </div>
         </div>
     </section>
@@ -893,7 +1031,7 @@
                 是你们的专业与耐心，照亮了我们前行的路<br>
                 祝柠檬考公越来越好
             </p>
-            <div class="signature">—— 柠檬公考 2026 省考班二期全体学员 敬上</div>
+            <div class="signature">—— 柠檬公考 2026 江苏省考面试班二期全体学员 敬上</div>
         </div>
     </section>
 
@@ -991,7 +1129,13 @@
             "金榜题名，成功上岸！",
             "不负韶华，梦想成真！",
             "乘风破浪，勇往直前！",
-            "心想事成，万事如意！"
+            "心想事成，万事如意！",
+            "马年行大运，上岸正当时！",
+            "一马当先，金榜题名！",
+            "龙马精神，面试超常发挥！",
+            "万马奔腾，你我顶峰相见！",
+            "快马加鞭，成功上岸！",
+            "马年到，好运到，必定上岸！"
         ];
 
         // 生成考生卡片
@@ -1128,6 +1272,37 @@
             }
             isPlaying = !isPlaying;
         }
+
+        // 统计数字动画
+        function animateStats() {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const target = parseInt(stat.dataset.target);
+                let current = 0;
+                const duration = 2000;
+                const step = target / (duration / 16);
+                const timer = setInterval(() => {
+                    current += step;
+                    if (current >= target) {
+                        current = target;
+                        clearInterval(timer);
+                    }
+                    stat.textContent = Math.floor(current);
+                }, 16);
+            });
+        }
+
+        // 当统计区域进入视野时触发动画
+        const statsSection = document.querySelector('.section-stats');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateStats();
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+        observer.observe(statsSection);
 
         // 初始化
         renderCards();
